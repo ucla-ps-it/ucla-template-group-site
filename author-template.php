@@ -20,8 +20,16 @@
       </div>
 <div class="col span_3_of_12">
 <h3><?php if(get_post_meta($post->ID, 'first_name',true)):?> <?php echo get_post_meta($post->ID, 'first_name', true);?> <?php endif;?><?php if(get_post_meta($post->ID, 'middle_name',true)):?> <?php echo get_post_meta($post->ID, 'middle_name', true);?> <?php endif;?><?php if(get_post_meta($post->ID, 'last_name',true)):?> <?php echo get_post_meta($post->ID, 'last_name', true);?><?php endif;?></h3>
-<br><br>
-<?php if(get_post_meta($post->ID, 'role',true)):?> <?php echo get_post_meta($post->ID, 'role', true);?> <?php endif;?>
+<br>
+ <?php
+$terms= get_the_terms($post->ID,'role');
+if ( $terms && !is_wp_error( $terms ) ) :
+?>
+        <?php foreach ( $terms as $term ) { ?>
+          <button type="button" class="button-role"><?php echo $terms->name; ?></button></li>
+        <?php } ?>
+<?php endif;?>
+<br>
 </hr>
 <h4>Contact information</h4>
 <b>Email:</b><a  href="mailto:<?php if(get_post_meta($post->ID, 'email',true)):?> <?php echo get_post_meta($post->ID, 'email', true);?> <?php endif;?>"><?php if(get_post_meta($post->ID, 'email',true)):?> <?php echo get_post_meta($post->ID, 'email', true);?> <?php endif;?></a>
