@@ -1,0 +1,16 @@
+/*********************
+ *********************
+ *  Title and Header *
+ *********************
+ ********************/
+
+/*Yellow Side Header*/
+
+.yellow-side-header{
+	border-left: 8px solid #FFD100;
+	padding: 0 0.5em;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+}
+
